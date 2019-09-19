@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.mat-dialog-content {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.loading {
+  display: block;
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
+  width: 200px;
+  height: 200px;
+  background-image: url("assets/img/preloader.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 100;
+}
+
+.mat-snack-bar-container {
+  .mat-simple-snackbar span {
+    font-size: 16px;
+    color: #000000;
+  }
+}
+
+.snack__error {
+  background-color: red;
+
+}
+
+.snack__success {
+  background-color: green;
+}

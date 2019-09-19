@@ -1,0 +1,28 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+<h1 mat-dialog-title align="center">{{company.name}}</h1>
+<div class="mat-dialog-pay" mat-dialog-content [formGroup]="payForm">
+  <mat-form-field>
+    <input matInput
+           [showMaskTyped]="true"
+           [validation]="false"
+           type="text"
+           suffix=" ₽."
+           mask="0000"
+           placeholder="pay"
+           formControlName="pay">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput
+           [showMaskTyped]="true"
+           type='text'
+           prefix="+3"
+           mask="(000) 000 00 00"
+           placeholder="phone"
+           formControlName="phone">
+  </mat-form-field>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Отмена</button>
+  <button mat-button (click)="pay()" cdkFocusInitial [disabled]="payForm.invalid">Оплатить</button>
+</mat-dialog-actions>
