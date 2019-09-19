@@ -1,5 +1,23 @@
 /*
-По первому тестовому исправил все  вот так лучше наверное будет
+Код после рефакторинга
+ */
+function func(s, a, b) {
+    let i = s.length - 1;
+    let index = -1;
+    while (index == -1 && i >= 0) {
+        const  letter = s.charAt(i);
+        if (letter == a || letter == b) {
+            index = i;
+        }
+        i = i - 1;
+    }
+    return index;
+}
+
+
+
+/*
+Если задача стояла с 0 я б написал как то так
 @params s{string}
 @params a{string}
 @params b{string}
