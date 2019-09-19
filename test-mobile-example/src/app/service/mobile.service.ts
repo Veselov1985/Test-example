@@ -35,10 +35,10 @@ export class MobileService {
   }
 
   public openSnackBar(title, state: boolean) {
-    const panelClass  = state ? 'snack__success' : 'snack__error';
-    return this.snackBar.open(title, 'Ok',{
+    const panelClass = state ? 'snack__success' : 'snack__error';
+    return this.snackBar.open(title, 'Ok', {
       panelClass,
-     // duration: 5000,
+      duration: 5000,
     })
   }
 }
