@@ -24,7 +24,7 @@ export class AppComponent {
     );
   }
 
-  public openPayDialog(id: number){
+  public openPayDialog(id: number) {
     this.dialog.open(PayBillComponent, {
       width: '500px',
       data: id,

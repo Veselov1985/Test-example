@@ -1,3 +1,5 @@
+import {USERS_DATA} from './users-data';
+
 export const FAKE_API: Record<string, any> = {
   'mobileCompany': [
     {
@@ -17,4 +19,5 @@ export const FAKE_API: Record<string, any> = {
       id: 4
     }
   ],
+  'users': USERS_DATA
 };

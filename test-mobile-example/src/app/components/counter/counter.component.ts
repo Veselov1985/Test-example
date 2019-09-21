@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Store, select} from '@ngrx/store';
-import {increment, decrement, reset} from '../../@core/shared/store/actions';
-import {tap} from 'rxjs/operators';
+import {select, Store} from '@ngrx/store';
+import {IAppState} from '../../@core/shared/store/state/app.state';
+import {DecrementCounter, IncrementCounter, ResetCounter} from '../../@core/shared/store/actions/counter.actions';
+import {map, tap} from 'rxjs/operators';
 
 
 @Component({
@@ -11,26 +12,33 @@ import {tap} from 'rxjs/operators';
   styleUrls: ['./counter.component.scss']
 })
 export class CounterComponent implements OnInit {
-count$!: Observable<boolean>;
+  count$!: Observable<boolean>;
+
   constructor(
-    private store: Store<{count: number}>,
+    private store: Store<IAppState>,
   ) {
-    this.count$ = store.pipe(
-      tap((s) => console.log(s)),
-      select('counter'));
+    this.count$ = this.store.pipe(
+      tap(r => {
+        console.log(r);
+      }),
+      select('counter'),
+      map(counter => counter.counter)
+    );
   }
 
   ngOnInit() {
   }
 
+
   increment() {
-    this.store.dispatch(increment);
-  }
-  decrement() {
-    this.store.dispatch(decrement);
-  }
-  reset() {
-    this.store.dispatch(reset);
+    this.store.dispatch(new IncrementCounter());
   }
 
+  decrement() {
+    this.store.dispatch(new DecrementCounter());
+  }
+
+  reset() {
+    this.store.dispatch(new ResetCounter());
+  }
 }
