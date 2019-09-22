@@ -5,6 +5,7 @@ import {tap} from "rxjs/operators";
 import {ICompany} from "../shared/company.interface";
 import {IPayBill} from "../shared/pay-bill.interface";
 import {MatSnackBar} from "@angular/material";
+import {IUser} from '../shared/user.interface';
 
 
 @Injectable({
@@ -27,7 +28,7 @@ export class MobileService {
   }
 
   public getCompanyItem(id: number): ICompany {
-    return this.storeCompanies.getValue().find((item: ICompany) => item.id === id)
+    return this.storeCompanies.getValue().find((item: ICompany) => item.id === id);
   }
 
   public pay(params: IPayBill) {
@@ -39,6 +40,10 @@ export class MobileService {
     return this.snackBar.open(title, 'Ok', {
       panelClass,
       duration: 5000,
-    })
+    });
+  }
+
+  public getUsers(): Observable<IUser[]> {
+    return this.fakeApi.post('users');
   }
 }

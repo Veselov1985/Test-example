@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
-import {FAKE_API} from "./fake-api.data";
+import {FAKE_API} from './fake-api.data';
 import {Observable, of} from 'rxjs';
-import {delay} from "rxjs/operators";
-import {ICompany} from "../../../shared/company.interface";
+import {delay} from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 
 export class FakeApiService {
 
-  constructor(){}
+  constructor() {}
 
-  public post(name: string): Observable<ICompany[]>{
+  public post(name: string): Observable<any> {
     return of(FAKE_API[name])
-      .pipe(delay(3000))
+      .pipe(delay(3000));
   }
 
-  public pay(params): Observable<boolean>{
+  public pay(params): Observable<boolean> {
     return of(Math.random() >= 0.5)
-      .pipe(delay(3000))
+      .pipe(delay(3000));
   }
 
 }

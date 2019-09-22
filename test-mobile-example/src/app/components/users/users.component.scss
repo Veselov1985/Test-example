@@ -1,0 +1,49 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.mobile {
+  &-title{
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #000000;
+  }
+  &-list {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    min-height: 50vh;
+  }
+  &-admin{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-bottom: 50px;
+    h2 {
+      text-align: center;
+    }
+  }
+  &-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    margin-bottom: 20px;
+    &__info {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+    }
+    &__number,
+    &__label,
+    &__email,
+    &__date
+    {
+      margin-right: 10px;
+    }
+  }
+
+}

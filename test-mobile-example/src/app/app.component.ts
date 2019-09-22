@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-import {MobileService} from "./service/mobile.service";
-import {Observable} from "rxjs";
-import {ICompany} from "./shared/company.interface";
-import {tap} from "rxjs/operators";
-import {PayBillComponent} from "./components/pay-bill/pay-bill.component";
-import {MatDialog} from "@angular/material";
+import {MobileService} from './service/mobile.service';
+import {Observable} from 'rxjs';
+import {ICompany} from './shared/company.interface';
+import {tap} from 'rxjs/operators';
+import {PayBillComponent} from './components/pay-bill/pay-bill.component';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-root',

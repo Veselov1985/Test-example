@@ -1,10 +1,10 @@
 import {RouterModule, Routes} from '@angular/router';
-import {CounterComponent} from './components/counter/counter.component';
 import {NgModule} from '@angular/core';
+import {UsersComponent} from './components/users/users.component';
 
 const routes: Routes = [
   { path: '',
-    component: CounterComponent
+    component: UsersComponent
   }
 ];
 

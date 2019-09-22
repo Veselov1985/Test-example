@@ -1,0 +1,25 @@
+<div class="mobile-list">
+  <app-loader *ngIf="isLoading"></app-loader>
+  <h1 class="mobile-title">Пользователи</h1>
+  <mat-card class="mobile-admin">
+    <h2>Админ</h2>
+    <div class="mobile-item__info">
+      <div class="mobile-item__number">{{(admin$ | async)?.id}}</div>
+      <div class="mobile-item__label">{{(admin$ | async)?.fileName}}</div>
+      <div class="mobile-item__date">{{(admin$ | async)?.date | date}}</div>
+      <div class="mobile-item__email">{{(admin$ | async)?.email}}</div>
+    </div>
+  </mat-card>
+  <mat-card class="mobile-item" *ngFor="let user of users$ | async; index as i ">
+    <div class="mobile-item__info">
+      <div class="mobile-item__number">{{i+1}}</div>
+      <div class="mobile-item__label">{{user.fileName}}</div>
+      <div class="mobile-item__date">{{user.date | date}}</div>
+      <div class="mobile-item__email">{{user.email}}</div>
+    </div>
+    <button mat-button class="mobile-item__action"
+            (click)="selectUser(user)">Сделать Админом
+    </button>
+  </mat-card>
+</div>
+

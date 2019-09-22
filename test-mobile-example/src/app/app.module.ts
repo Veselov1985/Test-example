@@ -14,13 +14,17 @@ import {CounterComponent} from './components/counter/counter.component';
 import {RouterModule} from '@angular/router';
 import {StoreRouterConnectingModule} from '@ngrx/router-store';
 import {AppRoutingModule} from './app.routing.module';
+import {UsersComponent} from './components/users/users.component';
+import {EffectsModule} from '@ngrx/effects';
+import {UsersEffects} from './@core/shared/store/effects/users.effects';
 
 @NgModule({
   declarations: [
     AppComponent,
     PayBillComponent,
     LoaderComponent,
-    CounterComponent
+    CounterComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +36,7 @@ import {AppRoutingModule} from './app.routing.module';
     NgxMaskModule.forRoot(),
     StoreModule.forRoot(appReducers),
     StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
+    EffectsModule.forRoot([UsersEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],

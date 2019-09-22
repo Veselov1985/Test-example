@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
 import {IAppState} from '../../@core/shared/store/state/app.state';
 import {DecrementCounter, IncrementCounter, ResetCounter} from '../../@core/shared/store/actions/counter.actions';
-import {map, tap} from 'rxjs/operators';
+import {selectCounter} from '../../@core/shared/store/selectors/count.selector';
 
 
 @Component({
@@ -12,18 +12,12 @@ import {map, tap} from 'rxjs/operators';
   styleUrls: ['./counter.component.scss']
 })
 export class CounterComponent implements OnInit {
-  count$!: Observable<boolean>;
+  count$!: Observable<number>;
 
   constructor(
     private store: Store<IAppState>,
   ) {
-    this.count$ = this.store.pipe(
-      tap(r => {
-        console.log(r);
-      }),
-      select('counter'),
-      map(counter => counter.counter)
-    );
+    this.count$ = this.store.pipe(select(selectCounter));
   }
 
   ngOnInit() {
