@@ -1,7 +1,6 @@
 <div class="mobile-list">
   <app-loader *ngIf="isLoading"></app-loader>
-  <h1 class="mobile-title">Пользователи</h1>
-  <mat-card class="mobile-admin">
+  <mat-card class="mobile-admin" *ngIf="(admin$ | async).id">
     <h2>Админ</h2>
     <div class="mobile-item__info">
       <div class="mobile-item__number">{{(admin$ | async)?.id}}</div>
@@ -10,6 +9,7 @@
       <div class="mobile-item__email">{{(admin$ | async)?.email}}</div>
     </div>
   </mat-card>
+  <h1 class="mobile-title">Пользователи</h1>
   <mat-card class="mobile-item" *ngFor="let user of users$ | async; index as i ">
     <div class="mobile-item__info">
       <div class="mobile-item__number">{{i+1}}</div>

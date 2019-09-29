@@ -3,7 +3,6 @@ import {merge, Observable} from 'rxjs';
 import {IUser} from '../../shared/user.interface';
 import {select, Store} from '@ngrx/store';
 import {IAppState} from '../../@core/shared/store/state/app.state';
-import {map, takeUntil} from 'rxjs/operators';
 import {GetUsers, GetUserSuccess} from '../../@core/shared/store/actions/user.actions';
 import {NgOnDestroy} from '../../@core/shared/services/destroy.service';
 import {selectAdmin, selectUserList} from '../../@core/shared/store/selectors/users.selector';
