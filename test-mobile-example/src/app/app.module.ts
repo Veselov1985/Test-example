@@ -17,6 +17,7 @@ import {AppRoutingModule} from './app.routing.module';
 import {UsersComponent} from './components/users/users.component';
 import {EffectsModule} from '@ngrx/effects';
 import {UsersEffects} from './@core/shared/store/effects/users.effects';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {UsersEffects} from './@core/shared/store/effects/users.effects';
     CoreModule,
     AppRoutingModule,
     RouterModule,
+    FlexLayoutModule,
     // RouterModule.forRoot({}),
     NgxMaskModule.forRoot(),
     StoreModule.forRoot(appReducers),

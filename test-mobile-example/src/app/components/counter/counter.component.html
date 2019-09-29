@@ -1,7 +1,9 @@
-<button id="increment" (click)="increment()">Increment</button>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap.xs="5px" fxLayoutAlign="space-around" fxShow fxHide.md="true">
+  <button id="increment" (click)="increment()">Increment</button>
 
-<div>Current Count: {{ count$ | async }}</div>
+  <div>Current Count: {{ count$ | async }}</div>
 
-<button id="decrement" (click)="decrement()">Decrement</button>
+  <button id="decrement" (click)="decrement()">Decrement</button>
 
-<button id="reset" (click)="reset()">Reset Counter</button>
+  <button id="reset" (click)="reset()">Reset Counter</button>
+</div>
